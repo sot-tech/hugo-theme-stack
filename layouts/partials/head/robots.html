@@ -1,0 +1,14 @@
+{{ $robots := "" }}
+{{ if (default false .Params.noindex) }}
+	{{ $robots = "noindex, noimageindex, noarchive" }}
+{{ end }}
+{{ if (default false .Params.nofollow) }}
+	{{ if ne $robots "" }}
+		{{ $robots = printf "%s, " $robots }}
+	{{ end }}
+	{{ $robots = printf "%snofollow" $robots }}
+{{ end }}
+{{ if ne $robots "" }}
+<meta name="robots" content="{{$robots}}" /> 
+{{ end }} 
+ 

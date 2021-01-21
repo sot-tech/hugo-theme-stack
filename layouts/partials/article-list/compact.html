@@ -1,5 +1,9 @@
+{{ $noindex := (default false .Params.noindex) }}
+{{ if $noindex }}
+{{ "<noindex>" | safeHTML }}
+{{ end }}
 <article>
-    <a href="{{ .RelPermalink }}">
+    <a href="{{ .RelPermalink }}" {{if $noindex}} rel="nofollow" {{end}}>
         <div class="article-details">
             <h2 class="article-title">
                 {{- .Title -}}
@@ -37,3 +41,6 @@
         {{ end }}
     </a>
 </article>
+{{ if $noindex }}
+{{ "</noindex>" | safeHTML }}
+{{ end }}

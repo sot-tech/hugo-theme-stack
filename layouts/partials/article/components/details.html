@@ -2,15 +2,14 @@
     {{ if .Params.categories }}
     <header class="article-category">
         {{ range (.GetTerms "categories") }}
-            <a href="{{ .RelPermalink }}" {{ with .Params.style }}style="background-color: {{ .background }}; color: {{ .color }};"{{ end }}>
+            <a href="{{ .RelPermalink }}" {{if (default false .Params.noindex)}}rel="nofollow"{{end}} {{ with .Params.style }}style="background-color: {{ .background }}; color: {{ .color }};"{{ end }}>
                 {{ .LinkTitle }}
             </a>
         {{ end }}
     </header>
     {{ end }}
-
     <h2 class="article-title">
-        <a href="{{ .RelPermalink }}">
+        <a href="{{ .RelPermalink }}" {{if (default false .Params.noindex)}}rel="nofollow"{{end}}>
             {{- .Title -}}
         </a>
     </h2>

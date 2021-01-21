@@ -1,3 +1,7 @@
+{{ $noindex := (default false .Context.Page.Params.noindex) }}
+{{ if $noindex }}
+{{ "<noindex>" | safeHTML }}
+{{ end }}
 <header class="article-header">
 	{{ $type := .Type }}
 	{{ with .Context }}
@@ -5,7 +9,7 @@
 			{{- $image := partialCached "helper/image" (dict "Context" . "Type" "article") .RelPermalink "article" -}}
 			{{ if $image.exists }}
 				<div class="article-image">
-					<a href="{{ .RelPermalink }}">
+					<a href="{{ .RelPermalink }}" {{if $noindex}}rel="nofollow"{{end}}>
 						{{ if $image.resource }}
 							{{- $Permalink := $image.resource.RelPermalink -}}
 							{{- $Width := $image.resource.Width -}}
@@ -37,3 +41,6 @@
 		{{ partialCached "article/components/details" . .RelPermalink }}
 	{{ end }}
 </header>
+{{ if $noindex }}
+{{ "</noindex>" | safeHTML }}
+{{ end }}
