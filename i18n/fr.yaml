@@ -2,6 +2,8 @@ toggleMenu:
     other: Afficher le menu
 
 article:
+    back:
+        other: Retour
     relatedContents:
         other: Contenus liés
     lastUpdatedOn:
