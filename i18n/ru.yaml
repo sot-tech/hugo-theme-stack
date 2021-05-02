@@ -1,10 +1,6 @@
-toggleMenu:
-    many: Показать/скрыть меню
-    other: Показать/скрыть меню
+toggleMenu: Показать/скрыть меню
 
-darkMode:
-    many: Тёмный режим
-    other: Тёмный режим
+darkMode: Тёмный режим
 
 list:
     page:
@@ -13,9 +9,7 @@ list:
         many: "{{ .Count }} страниц"
         other: "{{ .Count }} страниц"
 
-    section:
-        many: Раздел
-        other: Раздел
+    section: Раздел
 
     subsection:
         one: Подраздел
@@ -24,44 +18,24 @@ list:
         other: Подразделы
 
 article:
-    back:
-        many: Назад
-        other: Назад
-    relatedContents:
-        many: Также рекомендуем
-        other: Также рекомендуем
-    lastUpdatedOn:
-        many: Обновлено
-        other: Обновлено
+    back: Назад
+    relatedContents: Также рекомендуем
+    lastUpdatedOn: Обновлено
 
 notFound:
-    title:
-        many: Не найдено
-        other: Не найдено
-    subtitle:
-        many: Запрашиваемая страница не существует
-        other: Запрашиваемая страница не существует
+    title:  Не найдено
+    subtitle: Запрашиваемая страница не существует
 
 widget:
     archives:
-        title:
-            many: Архивы
-            other: Архивы
-        more:
-            many: Ещё
-            other: Ещё
+        title: Архивы
+        more: Ещё
     tagCloud:
-        title:
-            many: Теги
-            other: Теги
+        title: Теги
 
 search:
-    title:
-        many: Поиск
-        other: Поиск
-    placeholder:
-        many: Введите что-нибудь...
-        other: Введите что-нибудь...
+    title: Поиск
+    placeholder: Введите что-нибудь...
     resultTitle:
         one: "Найдено #PAGES_COUNT страница (за #TIME_SECONDS с.)"
         few: "Найдено #PAGES_COUNT страницы (за #TIME_SECONDS с.)"
@@ -69,9 +43,5 @@ search:
         other: "Найдено #PAGES_COUNT страниц (за #TIME_SECONDS с.)"
 
 footer:
-    builtWith:
-        many: Создано при помощи {{ .Generator }}
-        other: Создано при помощи {{ .Generator }}
-    designedBy:
-        many: Тема {{ .Theme }}, дизайн {{ .DesignedBy }}
-        other: Тема {{ .Theme }}, дизайн {{ .DesignedBy }}
+    builtWith: Создано при помощи {{ .Generator }}
+    designedBy: Тема {{ .Theme }}, дизайн {{ .DesignedBy }}
