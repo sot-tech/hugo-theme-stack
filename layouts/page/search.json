@@ -8,7 +8,7 @@
 {{- range $filtered -}}
     {{- $pLink := .Permalink -}}
     {{- if and $fullRelative ( not .Site.BaseURL ) -}}
-        {{- $pLink = printf "..%s" $pLink -}}
+        {{- $pLink = path.Join ".." $pLink -}}
     {{- end -}}
     {{- $data := dict "title" .Title "date" .Date "permalink" $pLink "content" (.Plain) -}}
 
@@ -23,7 +23,7 @@
         {{- end -}}
         {{- $imagePermalink = absURL $imagePermalink -}}
         {{- if and $imagePermalink $fullRelative ( not .Site.BaseURL ) -}}
-            {{- $imagePermalink = printf "..%s" $imagePermalink -}}
+            {{- $imagePermalink = path.Join ".." $imagePermalink -}}
         {{- end -}}
         {{- $data = merge $data (dict "image" $imagePermalink) -}}
     {{- end -}}

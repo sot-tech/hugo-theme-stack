@@ -8,7 +8,7 @@
 <form action="{{ .Permalink }}" class="search-form" {{- with .OutputFormats.Get "json" }} 
     {{ $pLink := .Permalink }}
     {{ if and (default false $.Site.Params.fullRelative) (not $.Site.BaseURL) }}
-        {{ $pLink = printf "..%s" $pLink }}
+        {{ $pLink = path.Join ".." $pLink }}
     {{ end }}
     data-json="{{ $pLink }}"
 {{ end -}}>
