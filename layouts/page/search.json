@@ -1,3 +1,4 @@
+{{- $fullRelative := default false .Site.Params.fullRelative -}}
 {{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
 {{- $notHidden := where .Site.RegularPages "Params.hidden" "!=" true -}}
 {{- $filtered := ($pages | intersect $notHidden) -}}
@@ -5,7 +6,11 @@
 {{- $result := slice -}}
 
 {{- range $filtered -}}
-    {{- $data := dict "title" .Title "date" .Date "permalink" .Permalink "content" (.Plain) -}}
+    {{- $pLink := .Permalink -}}
+    {{- if and $fullRelative ( not .Site.BaseURL ) -}}
+        {{- $pLink = printf "..%s" $pLink -}}
+    {{- end -}}
+    {{- $data := dict "title" .Title "date" .Date "permalink" $pLink "content" (.Plain) -}}
 
     {{- $image := partialCached "helper/image" (dict "Context" . "Type" "articleList") .RelPermalink "articleList" -}}
     {{- if $image.exists -}}
@@ -16,8 +21,11 @@
         {{- else -}}
             {{- $imagePermalink = $image.permalink -}}
         {{- end -}}
-        
-        {{- $data = merge $data (dict "image" (absURL $imagePermalink)) -}}
+        {{- $imagePermalink = absURL $imagePermalink -}}
+        {{- if and $imagePermalink $fullRelative ( not .Site.BaseURL ) -}}
+            {{- $imagePermalink = printf "..%s" $imagePermalink -}}
+        {{- end -}}
+        {{- $data = merge $data (dict "image" $imagePermalink) -}}
     {{- end -}}
 
     {{- $result = $result | append $data -}}
