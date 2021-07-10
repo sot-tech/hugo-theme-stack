@@ -21,6 +21,7 @@ article:
     back: Назад
     relatedContents: Также рекомендуем
     lastUpdatedOn: Обновлено
+    tableOfContents: Содержание
 
 notFound:
     title:  Не найдено
