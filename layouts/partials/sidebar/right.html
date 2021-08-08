@@ -1,6 +1,6 @@
 {{ if .Site.Params.widgets.enabled }}
     {{ $context := . }}
-    <aside class="sidebar right-sidebar sticky">
+    <aside class="sidebar right-sidebar {{- if default false .Site.Params.widgets.fixed }} sticky {{ end -}}">
         {{ range $widget := .Site.Params.widgets.enabled }}
             {{ partial (printf "widget/%s" $widget) $context }}
         {{ end }}

@@ -45,6 +45,9 @@ params:
         math: false
         toc: true
         readingTime: true
+        # Hide trimmed article image on article page (i.e. for custom image placing)
+        coverImage:
+            enabled: false
         license:
             enabled: true
             default: Licensed under CC BY-NC-SA 4.0
@@ -98,7 +101,7 @@ params:
             - search
             - archives
             - tag-cloud
-
+        fixed: false
         archives:
             limit: 5
 
