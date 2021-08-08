@@ -22,6 +22,7 @@ article:
     relatedContents: Также рекомендуем
     lastUpdatedOn: Обновлено
     tableOfContents: Содержание
+    readingTime: "Время чтения: {{ .Count }} мин."
 
 notFound:
     title: Не найдено
