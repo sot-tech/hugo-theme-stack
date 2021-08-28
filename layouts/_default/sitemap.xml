@@ -1,4 +1,4 @@
-{{ $pages := where .Data.Pages "Params.noindex" "!=" true }}
+{{ $pages := where (where .Data.Pages "Params.noindex" "!=" true) "Params.hidden" "!=" true }}
 {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
 		xmlns:xhtml="http://www.w3.org/1999/xhtml">
