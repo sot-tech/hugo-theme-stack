@@ -6,9 +6,9 @@
     </button>
 
     <header class="site-info">
-		<a href="{{ .Site.BaseURL }}">
         {{ with .Site.Params.sidebar.avatar }}
             {{ if (default true .enabled) }}
+            <a href="{{ $.Site.BaseURL }}">
             <figure class="site-avatar">
                 {{ if not .local }}
                     <img src="{{ .src }}" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
@@ -28,10 +28,10 @@
                     <span class="emoji">{{ . }}</span>
                 {{ end }}
             </figure>
+            </a>
             {{ end }}
         {{ end }}
-        <h1 class="site-name">{{ .Site.Title }}</h1>
-        </a>
+        <h1 class="site-name"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
         <h2 class="site-description">{{ .Site.Params.sidebar.subtitle }}</h2>
     </header>
 
