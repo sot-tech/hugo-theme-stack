@@ -15,6 +15,10 @@
 {{ define "main" }}
     {{ partial "article/article.html" . }}
 
+    {{ if .Params.links }}
+        {{ partial "article/components/links" . }}
+    {{ end }}
+
     {{ partial "article/components/related-contents" . }}
      
     {{ if or (not (isset .Params "comments")) (eq .Params.comments "true")}} 
