@@ -4,6 +4,21 @@ theme: hugo-theme-stack
 paginate: 5
 title: Example Site
 
+languages:
+    en:
+        languageName: English
+        title: Example Site
+        weight: 1
+    cn:
+        languageName: 中文
+        title: 演示站点
+        weight: 2
+    ar:
+        languageName: عربي
+        languagedirection: rtl
+        title: موقع تجريبي
+        weight: 3
+
 # Change it to your Disqus shortname before using
 disqusShortname: hugo-theme-stack
 
@@ -11,7 +26,7 @@ disqusShortname: hugo-theme-stack
 googleAnalytics:
 
 # Theme i18n support
-# Available values: en, fr, id, ja, ko, pt-br, zh-cn, zh-tw, es, de, nl, it, th, el, uk
+# Available values: en, fr, id, ja, ko, pt-br, zh-cn, zh-tw, es, de, nl, it, th, el, uk, ar
 DefaultContentLanguage: en
 
 # Set hasCJKLanguage to true if DefaultContentLanguage is in [zh-cn ja ko]
@@ -49,9 +64,6 @@ params:
         math: false
         toc: true
         readingTime: true
-        # Hide trimmed article image on article page (i.e. for custom image placing)
-        coverImage:
-            enabled: false
         license:
             enabled: true
             default: Licensed under CC BY-NC-SA 4.0
@@ -139,7 +151,7 @@ params:
             - search
             - archives
             - tag-cloud
-        fixed: false
+
         archives:
             limit: 5
 

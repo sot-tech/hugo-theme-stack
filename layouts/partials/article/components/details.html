@@ -9,6 +9,7 @@
     </header>
     {{ end }}
 
+    <div class="article-title-wrapper">
     <h2 class="article-title">
         <a href="{{ .RelPermalink }}" {{if (default false .Params.noindex)}}rel="nofollow"{{end}}>
             {{- .Title -}}
@@ -20,6 +21,7 @@
         {{ . }}
     </h3>
     {{ end }}
+    </div>
 
     {{ if or (not .Date.IsZero) (.Site.Params.article.readingTime) }}
     <footer class="article-time">
@@ -40,6 +42,17 @@
                 </time>
             </div>
         {{ end }}
+    </footer>
+    {{ end }}
+
+    {{ if .IsTranslated }}
+        <footer class="article-translations">
+            {{ partial "helper/icon" "language" }}
+            <div>
+                {{ range .Translations }}
+                    <a href="{{ .Permalink }}" class="link">{{ .Language.LanguageName }}</a>
+                {{ end }}
+            </div>
     </footer>
     {{ end }}
 </div>
