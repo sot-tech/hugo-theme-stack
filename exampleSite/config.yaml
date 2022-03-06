@@ -55,6 +55,10 @@ params:
     sidebar:
         emoji: 🍥
         subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        left:
+            fixed: false
+        right:
+            fixed: false
         avatar:
             enabled: true
             local: true
@@ -64,6 +68,8 @@ params:
         math: false
         toc: true
         readingTime: true
+        coverImage:
+            enabled: false
         license:
             enabled: true
             default: Licensed under CC BY-NC-SA 4.0
@@ -147,16 +153,19 @@ params:
             host:
             id:
     widgets:
-        enabled:
-            - search
-            - archives
-            - tag-cloud
-
-        archives:
-            limit: 5
-
-        tagCloud:
-            limit: 10
+        homepage:
+            - type: search
+            - type: archives
+            params:
+                limit: 5
+            - type: categories
+            params:
+                limit: 10
+            - type: tag-cloud
+            params:
+                limit: 10
+        page:
+            - type: toc
 
     opengraph:
         twitter:
