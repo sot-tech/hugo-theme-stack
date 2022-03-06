@@ -156,13 +156,13 @@ params:
         homepage:
             - type: search
             - type: archives
-            params:
+              params:
                 limit: 5
             - type: categories
-            params:
+              params:
                 limit: 10
             - type: tag-cloud
-            params:
+              params:
                 limit: 10
         page:
             - type: toc
