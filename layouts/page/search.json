@@ -1,4 +1,5 @@
 {{- $fullRelative := default false .Site.Params.fullRelative -}}
+{{- $fullSearch := default false (.Site.Params.searchFullContent) -}}
 {{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
 {{- $notHidden := where .Site.RegularPages "Params.hidden" "!=" true -}}
 {{- $filtered := ($pages | intersect $notHidden) -}}
@@ -10,7 +11,13 @@
     {{- if and $fullRelative ( not .Site.BaseURL ) -}}
         {{- $pLink = path.Join ".." $pLink -}}
     {{- end -}}
-    {{- $data := dict "title" .Title "date" .Date "permalink" $pLink "content" (.Plain) -}}
+    {{- $content := "" -}}
+    {{- if $fullSearch -}}
+        {{- $content = .Plain -}}
+    {{- else -}}
+        {{- $content = plainify (print .Description "\n" .Summary) -}}
+    {{- end -}}
+    {{- $data := dict "title" .Title "date" .Date "permalink" $pLink "content" (trim $content "  \r\n\t") -}}
 
     {{- $image := partialCached "helper/image" (dict "Context" . "Type" "articleList") .RelPermalink "articleList" -}}
     {{- if $image.exists -}}

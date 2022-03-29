@@ -42,6 +42,7 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
+    searchFullContent: true
     favicon:
 
     footer:
