@@ -19,7 +19,7 @@ list:
 
 article:
     back: Назад
-    relatedContents: Также рекомендуем
+    relatedContent: Также рекомендуем
     lastUpdatedOn: Обновлено
     tableOfContents: Содержание
     readingTime: "Время чтения: {{ .Count }} мин."
