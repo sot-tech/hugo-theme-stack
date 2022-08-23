@@ -8,7 +8,9 @@
 {{- $title := partialCached "data/title" . .RelPermalink -}}
 <title>{{ $title }}</title>
 
+{{- if not .IsHome -}}
 <link rel='canonical' href='{{ .Permalink }}'>
+{{- end -}}
 
 {{- partial "head/style.html" . -}}
 {{- partial "head/script.html" . -}}

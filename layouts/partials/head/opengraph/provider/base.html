@@ -40,4 +40,18 @@
 {{ $image := partialCached "helper/image" (dict "Context" . "Type" "opengraph") .RelPermalink "opengraph" }}
 {{- if $image.exists -}}
     <meta property='og:image' content='{{ absURL $image.permalink }}' />
+{{- else -}}
+    {{- with .Site.Params.sidebar.avatar -}}
+            {{- if (default true .enabled) -}}
+                {{ $avatar_lnk := "" }}
+                {{ if .local }}
+                    {{ $avatar_lnk = (resources.Get .src).Permalink }}
+                {{ else }}
+                    {{ $avatar_lnk = .src }}
+                {{ end }}
+                {{ if $avatar_lnk }}
+    <meta property='og:image' content='{{ absURL $avatar_lnk }}' />
+                {{ end }}
+            {{- end -}}
+    {{- end -}}
 {{- end -}}
