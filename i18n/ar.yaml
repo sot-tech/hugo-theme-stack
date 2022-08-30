@@ -8,6 +8,7 @@ list:
     page:
         one: "{{ .Count }} صفحه"
         other: "{{ .Count }} صفحات"
+    pageNum: "{{.N}} - الصفحة {{.Desc}}"
 
     section:
         other: قسم
@@ -47,9 +48,13 @@ widget:
 
         more:
             other: اكثر
+    categoriesCloud:
+        title:
+            one:  فئة
 
     tagCloud:
         title:
+            one:  وسوم 
             other: وسوم
 
 search:
@@ -68,3 +73,6 @@ footer:
         
     designedBy:
         other:  "قالب {{ .Theme }} مصمم من {{ .DesignedBy }}"
+taxonomy:
+    category: فئة
+    tag: وسوم

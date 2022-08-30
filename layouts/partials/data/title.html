@@ -1,6 +1,6 @@
 {{- $title := .Title -}}
 {{- $siteTitle := .Site.Title -}}
-
+{{- $paged := and (ne .Paginator nil) .Paginator.HasPrev -}}
 {{- if .IsHome -}}
     <!-- Homepage, and it's pagination -->
 
@@ -10,9 +10,9 @@
     {{ $filtered := ($pages | intersect $notHidden) }}
     {{ $pag := .Paginate ($filtered) }}
 
-    {{ if .Paginator.HasPrev }}
+    {{ if $paged }}
         <!-- Paginated. Append page number to title -->
-        {{ $title = printf "%s - %s" .Paginator $siteTitle }}
+        {{- $title = (T "list.pageNum" (dict "Desc" $siteTitle "N" .Paginator.PageNumber)) -}}
     {{ else }}
         {{ $title = $siteTitle}}
     {{ end }}
@@ -24,15 +24,14 @@
     {{ $pag := .Paginate ($notHidden) }}
 
     <!-- {TAXONOMY_TYPE}: {TAXONOMY_TERM} -->
-    {{ $title = slice (title .Data.Singular) ": " $title }}
+    {{ $title = print (T (print "taxonomy." .Data.Singular)) ": " $title }}
 
-    {{ if .Paginator.HasPrev }}
+    {{ if $paged }}
         <!-- Add page number-->
-        {{ $title = $title | append " - " .Paginator }}
+        {{- $title = (T "list.pageNum" (dict "Desc" $title "N" .Paginator.PageNumber)) -}}
     {{ end }} 
 
-    {{ $title = $title | append " - " $siteTitle }}
-    {{ $title = delimit $title "" }}
+    {{ $title = print $title " - " $siteTitle }}
 {{- end -}}
 
 {{ return $title }}

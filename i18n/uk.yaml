@@ -9,6 +9,7 @@ list:
         one: "{{ .Count }} сторінка"
         few: "{{ .Count }} сторінки"
         other: "{{ .Count }} сторінок"
+    pageNum: "{{.Desc}} - Сторінка {{.N}}"
 
     section:
         other: Секція
@@ -51,7 +52,11 @@ widget:
 
     tagCloud:
         title:
+            one:  Теґ
             other: Теґи
+    categoriesCloud:
+        title:
+            one:  Категорія
 
 search:
     title:
@@ -69,3 +74,7 @@ footer:
 
     designedBy:
         other: Тема {{ .Theme }}, дизайн {{ .DesignedBy }}
+
+taxonomy:
+    category: Категорія
+    tag: Теґ

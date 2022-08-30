@@ -4,6 +4,9 @@ toggleMenu:
 darkMode:
     other: ダークモード
 
+list:
+    pageNum: "{{.Desc}} - ページ {{.N}}"
+
 article:
     back:
         other: 前のページ
@@ -36,10 +39,12 @@ widget:
 
     tagCloud:
         title:
+            one:  タグ
             other: タグ
 
     categoriesCloud:
         title:
+            one:  カテゴリー
             other: カテゴリ
 
 search:
@@ -58,3 +63,7 @@ footer:
 
     designedBy:
         other: テーマ {{ .Theme }} は {{ .DesignedBy }} によって設計されています。
+
+taxonomy:
+    category: カテゴリー
+    tag: タグ

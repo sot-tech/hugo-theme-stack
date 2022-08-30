@@ -8,6 +8,7 @@ list:
     page:
         one: "{{ .Count }} 페이지"
         other: "{{ .Count }} 페이지"
+    pageNum: "{{.Desc}} - 페이지 {{.N}}"
 
     section:
         other: 섹션
@@ -49,10 +50,12 @@ widget:
             
     categoriesCloud:
         title:
+            one:  범주
             other: 카테고리
             
     tagCloud:
         title:
+            one:  태그
             other: 태그
 
 search:
@@ -70,3 +73,6 @@ footer:
         other: "{{ .Generator }}로 만듦"
     designedBy:
         other: "{{ .DesignedBy }}의 {{ .Theme }} 테마 사용 중"
+taxonomy:
+    category: 범주
+    tag: 태그

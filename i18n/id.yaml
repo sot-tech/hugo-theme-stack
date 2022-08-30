@@ -8,9 +8,10 @@ list:
     page:
         one: "{{ .Count }} halaman"
         other: "{{ .Count }} halaman"
+    pageNum: "{{.Desc}} - Страница {{.N}}"
 
     section:
-        other: Bagian
+        other: Halaman
 
     subsection:
         one: Subbagian
@@ -49,10 +50,12 @@ widget:
 
     tagCloud:
         title:
+            one:  Tag
             other: Tag
 
     categoriesCloud:
         title:
+            one:  Kategori
             other: Kategori
 
 search:
@@ -71,3 +74,8 @@ footer:
 
     designedBy:
         other: Tema {{ .Theme }} dirancang oleh {{ .DesignedBy }}
+
+
+taxonomy:
+    category: Kategori
+    tag: Tag

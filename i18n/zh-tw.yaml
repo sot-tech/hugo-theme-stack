@@ -4,6 +4,9 @@ toggleMenu:
 darkMode:
     other: 夜晚模式
 
+list:
+    pageNum: "{{.Desc}} - 頁 {{.N}}"
+
 article:
     back:
         other: 返回
@@ -33,9 +36,12 @@ widget:
 
         more:
             other: 更多
-
+    categoriesCloud:
+        title:
+            one:  類別
     tagCloud:
         title:
+            one:  標籤雲
             other: 標籤雲
 
 search:
@@ -47,3 +53,7 @@ search:
 
     resultTitle:
         other: "#PAGES_COUNT 個結果 （用時 #TIME_SECONDS 秒）"
+
+taxonomy:
+    category: 類別
+    tag: 標籤雲

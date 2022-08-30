@@ -8,7 +8,7 @@ list:
     page:
         one: "第 {{ .Count }} 頁"
         other: "第 {{ .Count }} 頁"
-
+    pageNum: "{{.Desc}} - 頁 {{.N}}"
     section:
         other: Section
 
@@ -50,9 +50,11 @@ widget:
 
     tagCloud:
         title:
+            one:  Tag
             other: Tags
     categoriesCloud:
         title:
+            one:  Category
             other: Categories
 
 search:
@@ -71,3 +73,7 @@ footer:
 
     designedBy:
         other: 主題 {{ .Theme }} 由 {{ .DesignedBy }} 設計
+
+taxonomy:
+    category: Category
+    tag: Tag

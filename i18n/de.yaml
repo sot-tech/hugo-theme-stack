@@ -8,6 +8,7 @@ list:
     page:
         one: "{{ .Count }} Seite"
         other: "{{ .Count }} Seiten"
+    pageNum: "{{.Desc}} - Seite {{.N}}"
 
     section:
         other: Abschnitt
@@ -50,10 +51,12 @@ widget:
 
     tagCloud:
         title:
+            one:  Schlagwort
             other: Schlagwörter
 
     categoriesCloud:
         title:
+            one:  Kategorie
             other: Kategorien
 
 search:
@@ -72,3 +75,6 @@ footer:
 
     designedBy:
         other: Theme {{ .Theme }} gestaltet von {{ .DesignedBy }}
+taxonomy:
+    category: Kategorie
+    tag: Schlagwort

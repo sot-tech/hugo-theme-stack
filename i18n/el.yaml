@@ -8,6 +8,7 @@ list:
     page:
         one: "{{ .Count }} σελιδα"
         other: "{{ .Count }} σελιδες"
+    pageNum: "{{.Desc}} - Σελίδα {{.N}}"
 
     section:
         other: Ενότητα
@@ -50,8 +51,11 @@ widget:
 
     tagCloud:
         title:
+            one:  Tag
             other: Tags
-
+    categoriesCloud:
+        title:
+            one:  Κατηγορία
 search:
     title:
         other: Αναζήτηση
@@ -68,3 +72,8 @@ footer:
 
     designedBy:
         other: Το θέμα {{ .Theme }} σχεδιάστηκε από το {{ .DesignedBy }}
+
+
+taxonomy:
+    category: Κατηγορία
+    tag: Tag

@@ -8,6 +8,7 @@ list:
     page:
         one: "{{ .Count }} pagina"
         other: "{{ .Count }} pagina's"
+    pageNum: "{{.Desc}} - Pagina {{.N}}"
 
     section:
         other: Sectie
@@ -36,10 +37,12 @@ widget:
             other: Meer
     tagCloud:
         title:
+            one:  Tag
             other: Tags
 
     categoriesCloud:
         title:
+            one:  Categorie
             other: Categorie
 
 search:
@@ -55,3 +58,7 @@ footer:
         other: Gemaakt met {{ .Generator }}
     designedBy:
         other: Theme {{ .Theme }} ontworpen door {{ .DesignedBy }}
+
+taxonomy:
+    category: Categorie
+    tag: Tag

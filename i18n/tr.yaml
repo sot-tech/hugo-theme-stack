@@ -8,6 +8,7 @@ list:
     page:
         one: "{{ .Count }} makale"
         other: "{{ .Count }} makale"
+    pageNum: "{{.Desc}} - Sayfa {{.N}}"
 
     section:
         other: Bölüm
@@ -36,7 +37,11 @@ widget:
             other: Daha fazla
     tagCloud:
         title:
+            one:  Etiket
             other: Etiketler
+    categoriesCloud:
+        title:
+            one:  Kategori
 
 search:
     title:
@@ -51,3 +56,7 @@ footer:
         other: "{{ .Generator }} ile oluşturuldu."
     designedBy:
         other: "{{ .Theme }} teması {{ .DesignedBy }} tarafından tasarlandı"
+
+taxonomy:
+    category: Kategori
+    tag: Etiket

@@ -2,13 +2,13 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 {{- partial "head/robots.html" . -}}
 
-{{- $description := partialCached "data/description" . .RelPermalink -}}
+{{- $description := partial "data/description" . .RelPermalink -}}
 <meta name='description' content='{{ $description }}'>
 
-{{- $title := partialCached "data/title" . .RelPermalink -}}
+{{- $title := partial "data/title" . .RelPermalink -}}
 <title>{{ $title }}</title>
 
-{{- if or (not (or .IsHome .IsPage)) (and (ne .Paginator nil) (gt .Paginator.PageNumber 1)) -}}
+{{- if or (not (or .IsHome .IsPage)) (and (ne .Paginator nil) .Paginator.HasPrev) -}}
 <link rel='canonical' href='{{ .Permalink }}'>
 {{- end -}}
 

@@ -8,6 +8,7 @@ list:
         few: "{{ .Count }} страницы"
         many: "{{ .Count }} страниц"
         other: "{{ .Count }} страниц"
+    pageNum: "{{.Desc}} - Страница {{.N}}"
 
     section: Раздел
 
@@ -33,9 +34,12 @@ widget:
         title: Архивы
         more: Ещё
     tagCloud:
-        title: Теги
+        title: 
+            one: Тег
+            other: Теги
     categoriesCloud:
         title:
+            one: Категория
             other: Категории
 
 search:
@@ -50,3 +54,7 @@ search:
 footer:
     builtWith: Создано при помощи {{ .Generator }}
     designedBy: Тема {{ .Theme }}, дизайн {{ .DesignedBy }}
+
+taxonomy:
+    category: Категория
+    tag: Тег

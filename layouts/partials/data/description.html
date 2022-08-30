@@ -1,5 +1,6 @@
 <!-- Use site subtitle by default -->
 {{ $description := .Site.Params.sidebar.subtitle }}
+{{- $paged := and (ne .Paginator nil) .Paginator.HasPrev -}}
 
 {{ if .Description }}
     <!-- Page description exists -->
@@ -8,5 +9,9 @@
     <!-- Use page summary -->
     {{ $description = .Summary }}
 {{ end }}
+
+{{- if $paged -}}
+    {{- $description = (T "list.pageNum" (dict "Desc" $description "N" .Paginator.PageNumber)) -}}
+{{- end -}}
 
 {{ return ($description | plainify)}}

@@ -8,6 +8,7 @@ list:
     page:
         one: "{{ .Count }} หน้า"
         other: "{{ .Count }} หน้า"
+    pageNum: "{{.Desc}} - เพจ {{.N}}"
 
     section:
         other: หมวดหมู่
@@ -50,7 +51,11 @@ widget:
 
     tagCloud:
         title:
+            one:  แท็ก
             other: แท็ก
+    categoriesCloud:
+        title:
+            one:  หมวดหมู่
 
 search:
     title:
@@ -68,3 +73,7 @@ footer:
 
     designedBy:
         other: ธีม {{ .Theme }} ออกแบบโดย {{ .DesignedBy }}
+
+taxonomy:
+    category: หมวดหมู่
+    tag: แท็ก
