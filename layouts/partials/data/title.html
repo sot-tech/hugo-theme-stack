@@ -4,12 +4,6 @@
 {{- if .IsHome -}}
     <!-- Homepage, and it's pagination -->
 
-    <!-- Build paginator -->
-    {{ $pages := where .Site.RegularPages "Section" "in" .Site.Params.mainSections }}
-    {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
-    {{ $filtered := ($pages | intersect $notHidden) }}
-    {{ $pag := .Paginate ($filtered) }}
-
     {{ if $paged }}
         <!-- Paginated. Append page number to title -->
         {{- $title = (T "list.pageNum" (dict "Desc" $siteTitle "N" .Paginator.PageNumber)) -}}
@@ -18,10 +12,6 @@
     {{ end }}
 {{- else if eq .Kind "term" -}}
     <!-- Taxonomy page -->
-
-    <!-- Build paginator -->
-    {{ $notHidden := where .Pages "Params.hidden" "!=" true }}
-    {{ $pag := .Paginate ($notHidden) }}
 
     <!-- {TAXONOMY_TYPE}: {TAXONOMY_TERM} -->
     {{ $title = print (T (print "taxonomy." .Data.Singular)) ": " $title }}

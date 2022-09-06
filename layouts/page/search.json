@@ -1,12 +1,10 @@
 {{- $fullRelative := default false .Site.Params.fullRelative -}}
-{{- $fullSearch := default false (.Site.Params.searchFullContent) -}}
+{{- $fullSearch := default false .Site.Params.searchFullContent -}}
 {{- $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
-{{- $notHidden := where .Site.RegularPages "Params.hidden" "!=" true -}}
-{{- $filtered := ($pages | intersect $notHidden) -}}
 
 {{- $result := slice -}}
 
-{{- range $filtered -}}
+{{- range $pages -}}
     {{- $pLink := .Permalink -}}
     {{- if and $fullRelative ( not .Site.BaseURL ) -}}
         {{- $pLink = path.Join ".." $pLink -}}

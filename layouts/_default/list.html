@@ -67,15 +67,16 @@
         </aside>
     {{- end -}}
     
-    {{/* List only pages that are not a subsection */}}
-    {{ $paginator := .Paginate $pages }}
-    <section class="article-list--compact">
-        {{ range $paginator.Pages }}
-            {{ partial "article-list/compact" . }}
-        {{ end }}
-    </section>
+    {{ if gt (len $pages) 0 }}
+        {{/* List only pages that are not a subsection */}}
+        <section class="article-list--compact">
+            {{ range (.Paginate $pages).Pages }}
+                {{ partial "article-list/compact" . }}
+            {{ end }}
+        </section>
 
-    {{- partial "pagination.html" . -}}
+        {{- partial "pagination.html" . -}}
+    {{ end }}
 
     {{ partialCached "footer/footer" . }}
 {{ end }}
