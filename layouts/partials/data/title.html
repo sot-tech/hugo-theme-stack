@@ -1,27 +1,22 @@
 {{- $title := .Title -}}
 {{- $siteTitle := .Site.Title -}}
 {{- $paged := and (ne .Paginator nil) .Paginator.HasPrev -}}
+
 {{- if .IsHome -}}
-    <!-- Homepage, and it's pagination -->
-
-    {{ if $paged }}
-        <!-- Paginated. Append page number to title -->
-        {{- $title = (T "list.pageNum" (dict "Desc" $siteTitle "N" .Paginator.PageNumber)) -}}
-    {{ else }}
-        {{ $title = $siteTitle}}
-    {{ end }}
-{{- else if eq .Kind "term" -}}
-    <!-- Taxonomy page -->
-
-    <!-- {TAXONOMY_TYPE}: {TAXONOMY_TERM} -->
-    {{ $title = print (T (print "taxonomy." .Data.Singular)) ": " $title }}
-
-    {{ if $paged }}
-        <!-- Add page number-->
-        {{- $title = (T "list.pageNum" (dict "Desc" $title "N" .Paginator.PageNumber)) -}}
-    {{ end }} 
-
+    <!-- Homepage -->
+    {{ $title = $siteTitle }}
+{{- else -}}
     {{ $title = print $title " - " $siteTitle }}
 {{- end -}}
+
+{{- if eq .Kind "term" -}}
+    <!-- {TAXONOMY_TYPE}: {TITLE} -->
+    {{- $title = print (T (print "taxonomy." .Data.Singular)) ": " $title -}}
+{{- end -}}
+
+{{ if $paged }}
+    <!-- Add page number-->
+    {{- $title = (T "list.pageNum" (dict "Desc" $title "N" .Paginator.PageNumber)) -}}
+{{ end }}
 
 {{ return $title }}

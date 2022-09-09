@@ -13,7 +13,7 @@
     {{- if $fullSearch -}}
         {{- $content = .Plain -}}
     {{- else -}}
-        {{- $content = plainify (print .Description "\n" .Summary) -}}
+        {{- $content = plainify (print .Description "\n" .Summary "\n" (delimit .Params.tags ", ")) -}}
     {{- end -}}
     {{- $data := dict "title" .Title "date" .Date "permalink" $pLink "content" (trim $content "  \r\n\t") -}}
 
