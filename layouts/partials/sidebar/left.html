@@ -26,7 +26,7 @@
                 {{ end }}
                 </a>
                 {{ with $.Site.Params.sidebar.emoji }}
-                    <span class="emoji">{{ . }}</span>
+                    <span class="emoji">{{ markdownify . }}</span>
                 {{ end }}
             </figure>
             {{ end }}
