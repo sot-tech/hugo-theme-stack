@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}"
 dir="{{ default `ltr` .Language.LanguageDirection }}" 
-prefix="og: https://ogp.me/ns# {{ if .IsPage }}article: https://ogp.me/ns/article#{{ end }}">
+prefix="og: https://ogp.me/ns# {{ if .IsPage }}article: https://ogp.me/ns/article#{{ end }}"
+{{ if eq .Site.Params.colorScheme.default "dark" }}data-scheme="dark"{{ end }}>
     <head>
         {{- partial "head/head.html" . -}}
         {{- block "head" . -}}{{ end }}
