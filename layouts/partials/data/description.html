@@ -1,21 +1,26 @@
 <!-- Use site subtitle by default -->
-{{- $description := .Site.Params.sidebar.subtitle -}}
-{{- $paged := and (ne .Paginator nil) .Paginator.HasPrev -}}
+{{ $description := .Site.Params.sidebar.subtitle }}
+{{ $paged := and (ne .Paginator nil) .Paginator.HasPrev }}
 
-{{- if .Description -}}
+<!-- Seprate description exists -->
+{{ if .Site.Params.description }}
+    {{ $description = .Site.Params.description }}
+{{ end }}
+
+{{ if .Description }}
     <!-- Page description exists -->
-    {{- $description = .Description -}}
-{{- else if .IsPage -}}
+    {{ $description = .Description }}
+{{ else if .IsPage }}
     <!-- Use page summary -->
     {{ $description = .Summary }}
-{{- else if eq .Kind "term" -}}
+{{ else if eq .Kind "term" }}
     <!-- fallback to title -->
     <!-- {TAXONOMY_TYPE}: {TAXONOMY_TERM} - {DESC} -->
     {{ $description = print (T (print "taxonomy." .Data.Singular)) ": " .Title " - " $description }}
-{{- end -}}
+{{ end }}
 
-{{- if $paged -}}
-    {{- $description = (T "list.pageNum" (dict "Desc" $description "N" .Paginator.PageNumber)) -}}
-{{- end -}}
+{{ if $paged }}
+    {{ $description = (T "list.pageNum" (dict "Desc" $description "N" .Paginator.PageNumber)) }}
+{{ end }}
 
 {{ return ($description | plainify)}}

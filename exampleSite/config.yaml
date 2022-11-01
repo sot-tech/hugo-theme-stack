@@ -8,15 +8,18 @@ languages:
     en:
         languageName: English
         title: Example Site
+        description: Example description
         weight: 1
     zh-cn:
         languageName: 中文
         title: 演示站点
+        description: 演示说明
         weight: 2
     ar:
         languageName: عربي
         languagedirection: rtl
         title: موقع تجريبي
+        description: وصف تجريبي
         weight: 3
 
 # Change it to your Disqus shortname before using
@@ -43,7 +46,7 @@ params:
     featuredImageField: image
     rssFullContent: true
     searchFullContent: true
-    favicon:
+    favicon:  # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
 
     footer:
         since: 2020
@@ -157,13 +160,13 @@ params:
             - type: search
             - type: archives
               params:
-                limit: 5
+                  limit: 5
             - type: categories
               params:
-                limit: 10
+                  limit: 10
             - type: tag-cloud
               params:
-                limit: 10
+                  limit: 10
         page:
             - type: toc
 

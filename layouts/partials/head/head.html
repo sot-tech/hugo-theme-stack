@@ -4,6 +4,7 @@
 
 {{- $description := partial "data/description" . .RelPermalink -}}
 <meta name='description' content='{{ $description }}'>
+{{ with .Params.Keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
 
 {{- $title := partial "data/title" . .RelPermalink -}}
 <title>{{ $title }}</title>

@@ -56,6 +56,10 @@ widget:
         title:
             one:  وسوم 
             other: وسوم
+            
+    categoriesCloud:
+        title:
+            other: التصنيفات
 
 search:
     title:

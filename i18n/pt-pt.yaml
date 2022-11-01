@@ -8,14 +8,13 @@ list:
     page:
         one: "{{ .Count }} página"
         other: "{{ .Count }} páginas"
-    pageNum: "{{.Desc}} - Página {{.N}}"
 
     section:
-        other: Seção
+        other: Secção
 
     subsection:
-        one: Subseção
-        other: Subseções
+        one: Subsecção
+        other: Subsecções
 
 article:
     back:
@@ -28,7 +27,7 @@ article:
         other: Conteúdo relacionado
 
     lastUpdatedOn:
-        other: Última atualização em
+        other: Última atualização a
 
     readingTime:
         one: "{{ .Count }} minuto de leitura"
@@ -48,18 +47,16 @@ widget:
             other: Mais
     tagCloud:
         title:
-            one:  Tag
             other: Tags
     categoriesCloud:
         title:
-            one:  Categoria
             other: Categorias
 
 search:
     title:
-        other: Busca
+        other: Pesquisa
     placeholder:
-        other: Digite algo...
+        other: Escreva algo...
     resultTitle:
         other: "#PAGES_COUNT páginas (#TIME_SECONDS segundos)"
 
