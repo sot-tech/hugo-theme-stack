@@ -1,14 +1,13 @@
-{{ $robots := "" }}
+{{ $robots := slice }}
 {{ if (default false .Params.noindex) }}
-	{{ $robots = "noindex, noimageindex, noarchive" }}
+	{{ $robots = $robots | append "noindex" "noimageindex" "noarchive" }}
 {{ end }}
 {{ if (default false .Params.nofollow) }}
-	{{ if ne $robots "" }}
-		{{ $robots = printf "%s, " $robots }}
-	{{ end }}
-	{{ $robots = printf "%snofollow" $robots }}
+	{{ $robots = $robots | append "nofollow" }}
 {{ end }}
-{{ if ne $robots "" }}
-<meta name="robots" content="{{$robots}}" /> 
+{{ if not (or .IsHome .IsPage) }}
+	{{ $robots = $robots | append "noimageindex" }}
+{{ end }}
+{{ if gt (len $robots) 0 }}
+<meta name="robots" content="{{ delimit (uniq $robots) ", " }}" />
 {{ end }} 
- 

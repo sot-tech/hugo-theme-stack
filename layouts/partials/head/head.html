@@ -9,7 +9,7 @@
 {{- $title := partial "data/title" . .RelPermalink -}}
 <title>{{ $title }}</title>
 
-{{- if or (not (or .IsHome .IsPage)) (and (ne .Paginator nil) .Paginator.HasPrev) -}}
+{{- if or (or .IsHome .IsPage) (and .Paginator .Paginator.HasPrev) -}}
 <link rel='canonical' href='{{ .Permalink }}'>
 {{- end -}}
 

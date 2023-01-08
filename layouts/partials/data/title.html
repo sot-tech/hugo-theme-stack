@@ -1,6 +1,6 @@
 {{- $title := .Title -}}
 {{- $siteTitle := .Site.Title -}}
-{{- $paged := and (ne .Paginator nil) .Paginator.HasPrev -}}
+{{- $paged := and .Paginator .Paginator.HasPrev -}}
 
 {{- if .IsHome -}}
     <!-- Homepage -->
