@@ -4,7 +4,7 @@
     <div class="widget-icon">
         {{ partial "helper/icon" "tag" }}
     </div>
-    <h2 class="widget-title section-title">{{ T "widget.tagCloud.title" }}</h2>
+    <h3 class="widget-title section-title">{{ T "widget.tagCloud.title" }}</h3>
 
     <div class="tagCloud-tags">
         {{ range $index, $item := first (add $limit 1) $context.Site.Taxonomies.tags.ByCount }}

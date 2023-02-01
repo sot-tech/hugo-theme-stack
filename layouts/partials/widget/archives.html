@@ -7,7 +7,7 @@
         <div class="widget-icon">
             {{ partial "helper/icon" "infinity" }}
         </div>
-        <h2 class="widget-title section-title">{{ T "widget.archives.title" }}</h2>
+        <h3 class="widget-title section-title">{{ T "widget.archives.title" }}</h3>
 
         {{ $pages := where $context.Site.RegularPages "Type" "in" $context.Site.Params.mainSections }}
         {{ $archives := $pages.GroupByDate "2006" }}
