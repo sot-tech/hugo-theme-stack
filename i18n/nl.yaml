@@ -22,6 +22,8 @@ article:
         other: Gerelateerde inhoud
     lastUpdatedOn:
         other: Laatst bijgewerkt op
+    readingTime:
+        other: "{{ .Count }} leestijd"
 
 notFound:
     title:
