@@ -5,7 +5,7 @@
 	{{ "<noindex>" | safeHTML }}
 	{{ end }}
     <a href="{{ .context.RelPermalink }}" {{if $noindex}} rel="nofollow" {{end}}>
-        
+
         {{ if $image.exists }}
             <div class="article-image">
                 {{ if $image.resource }}

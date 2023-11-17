@@ -25,6 +25,18 @@
         &:hover {
             box-shadow: var(--shadow-l2);
         }
+        
+        .article-note-container {
+            position: relative;
+        }
+        
+        .article-note {
+            position: absolute;
+            color: #fff;
+            top: 0;
+            background-color: #292929cc;
+            padding: 0 1rem;
+        }
 
         .article-image {
             img {
@@ -194,6 +206,18 @@
             @include respond(md) {
                 font-size: 1.8rem;
             }
+        }
+        
+        .article-note-container {
+            position: relative;
+        }
+        
+        .article-note {
+            position: absolute;
+            color: #fff;
+            top: 0;
+            background-color: #292929cc;
+            padding: 0;
         }
 
         .article-image {

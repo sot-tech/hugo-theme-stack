@@ -1,4 +1,5 @@
 {{ $noindex := (default false .Params.noindex) }}
+{{ $note := (default "" .Params.note) }}
 {{ if $noindex }}
 {{ "<noindex>" | safeHTML }}
 {{ end }}
@@ -18,6 +19,10 @@
         {{- $image := partialCached "helper/image" (dict "Context" . "Type" "articleList") .RelPermalink "articleList" -}}
         {{ if $image.exists }}
             <div class="article-image">
+                <div class="article-note-container">
+                {{ if $note }}
+                    <div class="article-note">{{ $note }}</div>
+                {{ end }}
                 {{ if $image.resource }}
                     {{- $Permalink := $image.resource.RelPermalink -}}
                     {{- $Width := $image.resource.Width -}}
@@ -38,6 +43,7 @@
                 {{ else }}
                     <img src="{{ $image.permalink }}" loading="lazy" alt="Featured image of post {{ .Title }}" />
                 {{ end }}
+                </div>
             </div>
         {{ end }}
     </a>
