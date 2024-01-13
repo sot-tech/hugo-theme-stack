@@ -17,6 +17,10 @@
         {{- if .Params.tags -}}
             {{- $tags = .Params.tags -}}
         {{- end -}}
+        {{- if .Params.tags_add -}}
+            {{- $tags = $tags | append .Params.tags_add -}}
+        {{- end -}}
+        {{- $tags = $tags | uniq -}}
         {{- $content = plainify (print .Description "\n" .Summary "\n" (delimit $tags ", ")) -}}
     {{- end -}}
     {{- $data := dict "title" .Title "date" .Date "permalink" $pLink "content" (trim $content "  \r\n\t") -}}
