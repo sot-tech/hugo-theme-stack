@@ -1,6 +1,6 @@
 <!-- Use site subtitle by default -->
 {{ $description := .Site.Params.sidebar.subtitle }}
-{{ $paged := and .Paginator .Paginator.HasPrev }}
+{{ $paged := and (not .IsPage) (and .Paginator .Paginator.HasPrev) }}
 
 <!-- Seprate description exists -->
 {{ if .Site.Params.description }}
