@@ -3,7 +3,7 @@
 {{- partial "head/robots.html" . -}}
 
 {{- $description := partialCached "data/description" . .RelPermalink -}}
-<meta name='description' content='{{ $description }}'>
+<meta name='description' {{ printf "content=%q" $description | safeHTMLAttr }}>
 {{ with .Params.Keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
 
 {{- $title := partial "data/title" . -}}
@@ -20,7 +20,7 @@
 {{- end -}}
 
 {{ with .Site.Params.favicon }}
-    <link rel="shortcut icon" href="{{ . }}" />
+    <link rel="shortcut icon" href="{{ . | relURL }}" />
 {{ end }}
 
 {{- template "_internal/google_analytics.html" . -}}

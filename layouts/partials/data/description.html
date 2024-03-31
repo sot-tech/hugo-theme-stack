@@ -19,8 +19,4 @@
     {{ $description = print (T (print "taxonomy." .Data.Singular)) ": " .Title " - " $description }}
 {{ end }}
 
-{{ if $paged }}
-    {{ $description = (T "list.pageNum" (dict "Desc" $description "N" .Paginator.PageNumber)) }}
-{{ end }}
-
-{{ return ($description | plainify)}}
+{{ return (replaceRE "\n" " " $description | plainify) }}
