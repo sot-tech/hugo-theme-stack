@@ -55,6 +55,7 @@ widget:
     categoriesCloud:
         title:
             one:  Catégorie
+            other: Catégories
 
 search:
     title:
